@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Tardis</title>
+
+    <!--TODO: Finalize Text for links of this site-->
+    <!--TODO : IMAGES for favicon, twitter, facebook and apple touch icon-->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Tardis">
+    <meta name="keywords" content="Tardis">
+    <meta name="google-site-verification" content="" />
+    <meta name="msvalidate.01" content="" />
+
+    <meta name='description' content='Tardis'>
+    <meta property='og:title' content='Tardis'>
+    <meta property='og:type' content='website'>
+    <meta property='og:description' content='Tardis'>
+    <meta property='og:image' content='%PUBLIC_URL%/facebook-meta-image.png'>
+    <meta property='og:image:width' content='1000'>
+    <meta property='og:image:height' content='600'>
+
+    <meta property='twitter:card' content='summary_large_image'>
+    <meta property='twitter:title' content='Tardis'>
+    <meta property='twitter:description' content='Tardis'>
+    <meta property='twitter:image' content='%PUBLIC_URL%/twitter-meta-image.png'>
+
+    <link rel="apple-touch-icon" href='%PUBLIC_URL%/apple-touch-icon.png'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Rubik:300,400,400i,500,700" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="%PUBLIC_URL%/favicon.png">
+  </head>
+
+  <body>
+        <div id='TardisWrapper' class='opened'>
+            <div id='TardisWrapperOverlay' onClick='toggleWidget()'></div>
+            <div id='TardisWidget'></div>
+        </div>
+
+        <div onClick='toggleWidget()'>Toggle button</div>
+
+        <script>
+            function toggleWidget() {
+                var widgetWrapper = document.getElementById('TardisWrapper');
+                widgetWrapper.classList.toggle('opened')
+            }
+        </script>
+  </body>
+</html>

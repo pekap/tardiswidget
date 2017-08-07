@@ -1,0 +1,16 @@
+.CTA {
+    padding: 0.7em 1.2em;
+    font-weight: bold;
+    font-size: (20/16)*1em;
+    font-family: $f-cta;
+    border-radius: 10em;
+    color: $c-white;
+    display: inline-block;
+    letter-spacing: 0.5px;
+
+    &--primary {
+        @extend .CTA;
+
+        background: $c-primary;
+    }
+}

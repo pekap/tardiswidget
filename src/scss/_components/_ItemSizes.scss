@@ -1,0 +1,72 @@
+.ItemSizes {
+    &__Nav {
+        display: flex;
+        justify-content: flex-start;
+
+        div {
+            padding: 0.5em 1em;
+            font-size: 1.5em;
+            color: $c-body;
+            cursor: pointer;
+            transition: 0.3s $ease-in-out-cubic;
+            border-bottom: 1px solid $c-lightgray;
+
+            &.selected {
+                color: $c-primary;
+                font-weight: bold;
+                border-bottom: 2px solid $c-primary;
+            }
+
+            &:hover:not(.selected) {
+                color: $c-primary; //darken($c-body, 30%);
+                // border-bottom: 1px solid darken($c-body, 30%);
+            }
+        }
+    }
+
+    &__Main {
+
+    }
+
+    &__Sketch {
+        svg {
+            g[id^='Arrow'] {
+                cursor: pointer;
+                $_c-sel: $c-primary; //#008AF3; // 
+                $_c-nor: darken($c-lightgray,20%); // #9ED0FB; // lighten($c-primary, 15%); //
+
+                path[id^='ArrowHead'] {
+                    stroke: $_c-nor;
+                    fill: $_c-nor;
+                    stroke-width: 2px;
+                }
+
+                path[id^='Path'] {
+                    stroke: $_c-nor;
+                    stroke-width: 2px;
+                }
+
+                text {
+                    fill: $_c-nor;
+                }
+
+                &.hovered {
+                    path {
+                        stroke: $_c-sel;
+                        &[id^='ArrowHead'] {
+                            fill: $_c-sel;
+                        }
+                    }
+
+                    text {
+                        fill: $_c-sel;
+                    }
+                }
+
+                path, text {
+                    transition: 0.3s $ease-in-out-quad;
+                }
+            }
+        }
+    }
+}

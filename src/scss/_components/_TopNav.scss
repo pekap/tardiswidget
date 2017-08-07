@@ -1,0 +1,49 @@
+.TopNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2em;
+
+    &__ItemImage {
+        vertical-align: middle;
+        width: 4em;
+        height: 4em;
+        border-radius: 0.5em;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        border: 1px solid $c-lightgray;
+    }
+
+    &__ItemTitle {
+        margin-right: auto;
+        margin-left: 2em;
+        font-weight: bold;
+    }
+
+    &__CloseButton {
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+
+    // box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    border: 1px solid $c-body;
+
+    @media (max-width: 500px) {
+    }
+}
+
+#page-wrapper.is-Loaded .GlobalNav {
+    opacity: 0;
+    animation: fadeIn 2s 0s linear both;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}

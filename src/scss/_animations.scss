@@ -1,0 +1,15 @@
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) translateX(0);
+    }
+}
+
+@keyframes drawLine {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}

@@ -1,0 +1,25 @@
+.InformationTable {
+    border-top: 1px solid $c-lightgray;
+    margin-top: 4em;
+    border-bottom: 1px solid $c-lightgray;
+
+    &__Item {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1em;
+        padding: 1em 0;
+
+        &__Title {
+
+        }
+
+        &__Value {
+            // color: $c-primary;
+            font-weight: bold;
+        }
+
+        & + & {
+            border-top: 1px solid $c-lightgray;
+        }
+    }
+}
