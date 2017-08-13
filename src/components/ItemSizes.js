@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-// import {CSSTransitionGroup} from 'react-transition-group';
-
-// import InlineSVG from 'react-inlinesvg';
-// import ImagePGP from '../img/PGP.svg';
 
 import SketchTshirt from './Sketches/Tshirt';
+import SketchPants from './Sketches/Pants';
+import SketchBlouse from './Sketches/Blouse';
+import SketchTanktop from './Sketches/Tanktop';
+import SketchShorts from './Sketches/Shorts';
+import SketchSkirt from './Sketches/Skirt';
+import SketchDress from './Sketches/Dress';
+import SketchDressSleeveless from './Sketches/DressSleeveless';
 
 class ItemSizes extends Component {
     constructor (props) {
@@ -12,35 +15,67 @@ class ItemSizes extends Component {
 
         this.state = {
             selectedSize: props.defaultSize,
-            arrowExplanation: null
+            arrowExplanation: 'Наведите на мерку'
         }
 
         this.onNavSizeClick = this.onNavSizeClick.bind(this);
         this.updateArrowExplanation = this.updateArrowExplanation.bind(this);
     }
 
-    onNavSizeClick(i) {
+    onNavSizeClick(s) {
         return () => {
             this.setState({
-                selectedSize: i
+                selectedSize: s
             });
         }
     }
 
     updateArrowExplanation(text) {
+        let t = (text == '' ? 'Наведите на мерку' : text);
         this.setState({
             arrowExplanation: text
         })
     }
 
+    renderItemSketch() {
+        let p = {
+            measurements: this.props.measurements,
+            handleHoverArrow: this.updateArrowExplanation
+        }
+
+        switch (this.props.itemType) {
+            case 'tshirt':
+                return <SketchTshirt {...p} />;
+            case 'pants':
+                return <SketchPants {...p} />;
+            case 'blouse':
+                return <SketchBlouse {...p} />;
+            case 'tanktop':
+                return <SketchTanktop {...p} />;
+            case 'shorts':
+                return <SketchShorts {...p} />;
+            case 'skirt':
+                return <SketchSkirt {...p} />;
+            case 'dress':
+                return <SketchDress {...p} />;
+            case 'dresssleeveless':
+                return <SketchDressSleeveless {...p} />;
+            default:
+                return <div>Can not recognize the type</div>;
+        }
+    }
+
     render () {
         let sizeNavItems = this.props.sizes.map((s, i) => {
-            let selectedClass = (i === this.state.selectedSize ? 'selected' : '')
+            let selectedClass = (s === this.state.selectedSize ? 'selected' : '')
 
-            return (<div className={selectedClass} onClick={this.onNavSizeClick(i)}>
+            return (<div className={selectedClass} onClick={this.onNavSizeClick(s)}>
                 {s}
             </div>);
         });
+
+        // Here you would pass different measurements based on which item is selected
+
 
         return (
             <div className='ItemSizes'>
@@ -49,8 +84,9 @@ class ItemSizes extends Component {
                 </nav>
                 <div className='ItemSizes__Main'>
                     <div className='ItemSizes__Sketch'>
-                        <SketchTshirt handleHoverArrow={this.updateArrowExplanation}/>
+                        {this.renderItemSketch()}
                     </div>
+
                     <div className='ItemSizes__ArrowExplanation'>
                         {this.state.arrowExplanation}
                     </div>

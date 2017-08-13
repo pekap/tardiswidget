@@ -5,5 +5,5 @@ import './scss/index.css';
 
 ReactDOM.render(
     <App />,
-    document.getElementById('TardisWidget')
+    document.getElementById('TardisInject')
 );

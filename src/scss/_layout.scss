@@ -55,7 +55,8 @@ section + section {
         height: 100vh;
         will-change: transform;
         width: 100%;
-        max-width: 500px;
+        z-index: 2;
+        max-width: 400px;
         transition: transform $_transition-time 0s $ease-in-out-quad;
 
         // temporary
@@ -69,6 +70,7 @@ section + section {
         pointer-events: none;
         top: 0; left: 0;
 
+        z-index: 1;
         opacity: 0;
         transition: opacity $_transition-time 0s $ease-out-quad;
     }

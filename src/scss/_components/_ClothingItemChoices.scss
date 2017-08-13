@@ -1,0 +1,30 @@
+.ClothingItemChoices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 40em;
+    margin-left: 50vw;
+    width: 100%;
+    margin-top: 50vh;
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    z-index: 0;
+
+    & > div {
+        padding: 1em 2em;
+        font-size: 1em;
+        line-height: 1em;
+        letter-spacing: 2px;
+        border: 1px solid lightgray;
+        margin: 1em;
+        border-radius: 5px;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: 0.2s $ease-in-out-cubic;
+
+        &:hover {
+            background: rgba(0,0,0,0.05);
+        }
+    }
+}

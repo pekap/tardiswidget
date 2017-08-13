@@ -1,10 +1,16 @@
 .ItemSizes {
     &__Nav {
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
+        box-sizing: border-box;
+
+        margin-bottom: 1em;
 
         div {
+            box-sizing: border-box;
             padding: 0.5em 1em;
+            width: 3em;
+            text-align: center;
             font-size: 1.5em;
             color: $c-body;
             cursor: pointer;
@@ -28,28 +34,71 @@
 
     }
 
-    &__Sketch {
-        svg {
-            g[id^='Arrow'] {
-                cursor: pointer;
-                $_c-sel: $c-primary; //#008AF3; // 
-                $_c-nor: darken($c-lightgray,20%); // #9ED0FB; // lighten($c-primary, 15%); //
+    &__ArrowExplanation {
+        width: 100%;
+        text-align: center;
+        height: 1.5em;
+        line-height: 1.5em;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: darken($c-lightgray,20%);// #dc1e46; //#E8899D; //darken($c-lightgray,20%);;
+    }
 
-                path[id^='ArrowHead'] {
+    &__Sketch {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        svg {
+            g[id^='MainShape'] {
+                stroke-linecap: round;
+                stroke-width: 1px;
+
+                & > path {
+                    stroke: #222;
+                }
+            }
+            g[id^='Arrow'] {
+                stroke-linecap: round;
+                stroke-width: 2px;
+                cursor: pointer;
+                $_c-sel: #dc1e46; //$c-primary; //#008AF3; //
+                $_c-nor: #E8899D; // darken($c-lightgray,20%); // #9ED0FB; // lighten($c-primary, 15%); //
+
+                [id^='ArrowHead'] {
                     stroke: $_c-nor;
                     fill: $_c-nor;
+                    stroke-width: 0;
+                }
+
+                [id^='Path'] {
+                    stroke: $_c-nor;
                     stroke-width: 2px;
                 }
 
-                path[id^='Path'] {
-                    stroke: $_c-nor;
-                    stroke-width: 2px;
+                [id='Path--Back'] {
+                    stroke-dasharray: 5,15;
+                }
+
+                [id='HoverArea'] {
+                    stroke: none!important;
+                    fill: rgba(255,255,255,0)!important;
                 }
 
                 text {
                     fill: $_c-nor;
+                    text-anchor: middle;
+                    font-family: $f-title;
+                    font-weight: bold;
+                    font-size: 14px;
+
+                    &.anchorLeft {
+                        text-anchor: start;
+                    }
                 }
 
+                // Disabled hover effect for now
                 &.hovered {
                     path {
                         stroke: $_c-sel;
@@ -61,6 +110,10 @@
                     text {
                         fill: $_c-sel;
                     }
+                }
+
+                &.hidden {
+                    display: none;
                 }
 
                 path, text {
